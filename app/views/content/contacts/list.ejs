@@ -22,9 +22,9 @@
                     <% for(let count = 0; count < contacts.length; count++) { %>
                         <tr>
                             <th scope="row" class="text-center"><%= count + 1 %></th>
-                            <td><%= contacts[count].Name %></td>
-                            <td><%= contacts[count].Number %></td>
-                            <td><%= contacts[count].Email %></td>
+                            <td><%= contacts[count].name %></td>
+                            <td><%= contacts[count].number %></td>
+                            <td><%= contacts[count].email %></td>
 
                             <td class="text-center col-1">
                                 <a href="/contact-edit/<%= contacts[count]._id %>"
