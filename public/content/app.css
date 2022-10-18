@@ -1,0 +1,62 @@
+/* Salma Chaaban - COMP229 - Assignment1 - 301216551 - Centennial College - Oct. 6 2022 */
+
+
+/* Contact Page From CSS */
+input[type=text], input[type=tel], input[type=email], textarea {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #989ea0;
+    border-radius: 4px; 
+    box-sizing: border-box;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    resize: vertical 
+  }
+  
+  .button {
+    background-color: #292d2e;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #424749;
+  }
+  
+  fieldset {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+
+  /* Projects page CSS */
+  .projectsPage img {
+    display: block;
+    margin: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+  }
+
+  .projectsPage hr {
+    border: 2px solid black;
+    border-radius: 5px;
+  }
+
+  /* Services page CSS */
+  .servicesPage img {
+    display: block;
+    margin: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    
+  }
+
+  .servicesPage hr {
+    border: 2px solid black;
+    border-radius: 5px;
+  }
