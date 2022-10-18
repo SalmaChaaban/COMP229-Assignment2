@@ -12,14 +12,20 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 // Import Mongoose Module
 import mongoose from 'mongoose';
 
+
+
 // Configuration Module
 import { MongoURI, Secret } from "../config/config.js";
+
+
 
 // Import Router
 import indexRouter from './routes/index.route.server.js';
 
 // instantiate app-server
 const app = express();
+
+
 
 // Complete the DB Configuration
 mongoose.connect(MongoURI);
@@ -28,6 +34,8 @@ const db = mongoose.connection;
 // Listen for connection succes or error
 db.on('open', () => console.log("Connected to MongoDB"));
 db.on('error', () => console.log("Mongo Connection Error"));
+
+
 
 // setup ViewEngine EJS
 app.set('views', path.join(__dirname,'/views'));
