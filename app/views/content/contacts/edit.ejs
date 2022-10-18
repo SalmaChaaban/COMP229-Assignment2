@@ -21,7 +21,7 @@
                     id="nameTextField"
                     placeholder="Enter the Contact Number"
                     name="number"
-                    value="<%= contact.year %>"
+                    value="<%= contact.number %>"
                     required>
                 </div>
 
@@ -31,14 +31,14 @@
                     id="nameTextField"
                     placeholder="Enter the Email Address"
                     name="email"
-                    value="<%= contact.director %>"
+                    value="<%= contact.email %>"
                     required>
                 </div>
 
                 <button class="btn btn-primary" type="submit">
                     <i class="fas fa-edit"></i>Submit</button>
 
-                    <a href="/contacts/list" class="btn btn-warning">
+                    <a href="/contact-list" class="btn btn-warning">
                         <i class="fas fa-undo"></i>Cancel</a>
 
             </form>
