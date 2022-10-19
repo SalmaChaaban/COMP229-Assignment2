@@ -9,6 +9,17 @@ import path, {dirname} from 'path';
 import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
+// Auth Step 1 - import modules
+import passport from 'passport';
+import passportLocal from 'passport-local';
+import flash from 'connect-flash';  // library to provide messaging configuration
+
+// Auth Step 2 - define our auth strategy
+let localStrategy = passportLocal.Strategy;
+
+// Auth Step 3 - import the user model
+import User from './models/user.js';
+
 // Import Mongoose Module
 import mongoose from 'mongoose';
 
@@ -22,6 +33,7 @@ import { MongoURI, Secret } from "../config/config.js";
 // Import Routes
 import indexRouter from './routes/index.route.server.js';
 import contactRouter from './routes/contacts.route.server.js';
+
 
 // instantiate app-server
 const app = express();
@@ -47,17 +59,33 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
+
+// Auth Step 4 - setup Express session
 app.use(session({
     secret: Secret,
     saveUninitialized: false,
     resave: false
 }));
 
+// Auth Step 5 - setup Flash
+app.use(flash());
+
+// Auth Step 6 - Initialize Passport and Session
+app.use(passport.initialize());
+app.use(passport.session()); // session adds extended functionality inside passport
+
+// Auth Step 7 - Inmplement the auth strategy into passport
+passport.use(User.createStrategy());
+
+// Auth Step 8 - Setup serialization and deserialization
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 // Use Routes
 app.use('/', indexRouter);
 app.use('/', contactRouter);
 
-// // run app
+// run app
 // app.listen(3000);
 
 // console.log('Server running at http://localhost:3000');
